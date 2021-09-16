@@ -1,46 +1,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lexend+Deca&display=swap');
 
-/*Currently working on image color overlay and desktop view.*/
+/*WIP (Some of the placement still needs work.)*/
 
 body {
     background-color: hsl(233, 47%, 7%);
     font-size: 15px;
     color: hsl(0, 0%, 100%);
-    display: grid;
-    place-items: center;
-    min-height: 100vh;
-    min-width: 80%;
-    max-width: 654px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin: 0 auto;
 }
 
 .container {
     background-color: hsl(244, 38%, 16%);
     border-radius: 8px;
-    overflow: hidden;
     text-align: center;
-    width: 85%;
-    margin: 6rem 0 6rem 0;
-}
-
-.wrapper {
     line-height: 1.5rem;
+    height: auto;
+    width: 80%;
+    overflow: hidden;
 }
 
-.item1 {
-    background: hsl(277, 97%, 27%);
+.img {
+    background-color: hsl(277, 64%, 61%);
+    margin-bottom: 5px;
 }
 
-img {
-    opacity: 0.45;
-    max-width:100%;
-    max-height:100%;
-    display: block;
-    z-index: -999;
+main img {
+    mix-blend-mode: multiply;
+	filter: contrast(60%);
+    vertical-align: top;
+	max-width: 100%;
 }
 
-.item2 {
-    padding: 1.5rem;
+.desktop {
+    display: none;
+}
+
+.info {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 h1 {
@@ -48,6 +51,7 @@ h1 {
     font-weight: 700;
     font-size: 1.7rem;
     line-height: 2rem;
+    margin: 0 auto;
 }
 
 h1 span {
@@ -59,20 +63,19 @@ p {
     font-weight: 400;
     line-height: 1.5rem;
     color: hsla(0, 0%, 100%, 0.6);
-    padding: .2rem;
 }
 
 .stats {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    padding: 1.5rem;
+    gap: 1.5rem;
+    margin-top: 20px;
 }
 
 .stat-item {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     line-height: 1.8rem;
     color: hsl(0, 0%, 100%);
 }
@@ -85,4 +88,71 @@ p {
     text-transform: uppercase;
     letter-spacing: .1rem;
     color: hsla(0, 0%, 100%, 0.6);
+}
+
+@media only screen and (min-width: 1024px) {
+    .container {
+        display: flex;
+        flex-direction: row-reverse;
+        text-align: left;
+        height: auto;
+        width: 70rem;
+        min-width: 70rem;
+    }
+
+    .mobile {
+        display: none;
+    }
+
+    .img {
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+    }
+
+    img {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .desktop {
+        display: inline-block;
+		vertical-align: top;
+        mix-blend-mode: multiply;
+		filter: contrast(65%);
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    .info {
+        padding: 4.5rem;
+        width: auto;
+        margin-right: 2.5rem;
+        gap: 1.5rem;
+    }
+
+    h1 {
+        font-size: 36px;
+        line-height: 2.8rem;
+        word-spacing: .1rem;
+    }
+
+    p {
+        width: 24rem;
+        margin: 0 auto;
+    }
+
+    .stats {
+        flex-direction: row;
+        padding-top: 1.5rem;
+        gap: 3.5rem;
+        margin-bottom: -25px;
+    }
+}
+
+@media only screen and (min-width: 568px) {
+    .container {
+        max-width: 654px;
+    }
 }
